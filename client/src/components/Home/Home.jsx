@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 // import {getAll} from '../../Redux/Action/Action'
 import {Card} from '../Card/Card';
 import {Paginado} from '../Paginado/Paginado'
+import FilterByTemperament from '../Filter/FilterByTemperament'
 
 
 export const Home = () => {
@@ -27,6 +28,9 @@ export const Home = () => {
             <Link to='/Create_Dogs'>
                 Create Dogs
             </Link>
+        </div>
+        <div>
+            <FilterByTemperament/>
         </div>
         <div>
             {

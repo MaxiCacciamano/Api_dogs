@@ -16,7 +16,7 @@ export const Card = ({id,name,height,weight,life_span,img,description,temperamen
     <p>{temperament}</p>
     <p>weight:</p>
     <p>{weight}</p>
-
+    <br/>
     <div>
         <Link to={`/detail/${id}`}>
             <button>Read more</button>

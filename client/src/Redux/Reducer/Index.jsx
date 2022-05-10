@@ -1,6 +1,7 @@
 const initialState ={
     dogs:[],
-    temperaments:[]
+    temperaments:[],
+    allDogs:[]
 }
 
 export default function rootReducer(state = initialState, action){
@@ -15,6 +16,18 @@ export default function rootReducer(state = initialState, action){
             return{
                 ...state,
                 temperaments: action.payload
+            }
+        case "FILTER_BY_TEMPERAMENT":
+            const allStateDogs = state.allDogs
+            const temper = allStateDogs.filter(t=>{
+                if(t.temperament){
+                    const temperamen = t.temperament.map(p=>p.name)
+                    return temperamen.includes(action.payload)
+                }
+            })
+            return{
+                ...state,
+                dogs: action.payload === "Sin_filtro" ? allStateDogs : temper,
             }
             default:
                 return state;

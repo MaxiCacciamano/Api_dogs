@@ -23,3 +23,17 @@ export function getTemperaments(){
         })
     }
 }
+
+export function filterByTemperament(payload){
+    return{
+        type: "FILTER_BY_TEMPERAMENT",
+        payload
+    }
+}
+
+export function filterByRaza(payload){
+    return{
+        type: "FILTER_BY_RAZA",
+        payload
+    }
+}
