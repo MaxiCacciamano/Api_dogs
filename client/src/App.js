@@ -28,7 +28,7 @@ function App() {
        <Route exact path='/' element={<Landing/>}/>
        <Route  path='/Home' element={<Home/>}/>
        <Route path="/detail/:id" element={<SearchByid/>}/>
-       <Route path='/Form' element={<Form/>}/>
+       <Route path='/Create_Dogs' element={<Form/>}/>
     </Routes>   
  </div>
   );

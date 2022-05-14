@@ -20,6 +20,24 @@ module.exports = (sequelize) => {
     // temperaments:{
     //   type: DataTypes.STRING,
     // },
+    // height_min:{
+
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    // height_max:{
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    
+    // weight_min:{
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    // weight_max:{
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     height:{
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,6 +51,11 @@ module.exports = (sequelize) => {
     },
     description:{
       type: DataTypes.STRING,
+    },
+    createdInDatabase:{
+      type:DataTypes.BOOLEAN,
+      allowNull:false,
+      defaultValue:true,
     }
 
   });
