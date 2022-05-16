@@ -35,8 +35,10 @@ export const Home = () => {
   return (
       <>
         <div>Fan page DOGS</div>
-        <div onClick={e=>handleRefresh(e)}>
-            Refresh
+        <div>
+            <button onClick={e=>handleRefresh(e)}>
+              Refresh
+            </button>
         </div>
         <div>
             <Link to='/Create_Dogs'>
