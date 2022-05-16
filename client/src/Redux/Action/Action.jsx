@@ -49,16 +49,15 @@ export function getTemperaments(){
 export function getDogsById(id){
     return async function(dispatch){
         try{
-            const details = await axios.get(`http://localhost:3001/dogs/${id}`);
+            const det = await axios.get(`http://localhost:3001/dogs/${id}`);
             return dispatch({
                 type: "Get_by_id",
-                payload: details.data
+                payload: det.data
             })
         }
         catch(e){
-            console.log("el error viene del getDogsById d3e actions", e)
+            console.log("el error viene del getDogsById de actions", e)
         }
-
     }
 }
 

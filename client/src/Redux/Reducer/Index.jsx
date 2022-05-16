@@ -30,7 +30,7 @@ export default function rootReducer(state = initialState, action){
         case "GET_DOGS_NAME":
             return{
                 ...state,
-                dog: action.payload
+                dogs: action.payload
             }
         case "Get_by_id":
             console.log(action.payload)

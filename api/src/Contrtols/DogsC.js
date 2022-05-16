@@ -76,7 +76,7 @@ const GetDogs = async (req, res, next) =>{
     }
     catch(e){
         next(e);
-        res.status(404).send("Algo salio mal en el getDb")
+        console.log("Algo salio mal en el getDb")
     }
 }
 

@@ -5,14 +5,12 @@ import {Link} from 'react-router-dom';
 import {getDogsById, removeDetail} from '../../Redux/Action/Action';
 
 
-export const SearchByid = () => {
+export const SearchByid = (props) => {
 
-  const allDetail = useSelector((state)=>state.detail)
   const dispatch = useDispatch();
-  console.log(allDetail)
   const {id} = useParams()
-  console.log(id)
-
+  // console.log(id)
+  
   useEffect(()=>{
     dispatch(getDogsById(id));
     return (()=>{
@@ -20,42 +18,54 @@ export const SearchByid = () => {
     })
   },[dispatch])
 
+  const allDetail = useSelector((state)=>state.detail)
+  
   return (
     <>
-    <div>
+     <div>
       <Link to="/home"><button>Back</button></Link>
       <br/><br/>
-    </div>
+    </div> 
     {
-    allDetail.name?
+    allDetail.length > 0?(
     <div>
     <div>
-      <img src={allDetail.image}/>
+      <img src={allDetail[0].image}/>
     </div>
     <div>
         <h1>Name:</h1>
-        <h2>{allDetail.name}</h2>
+        <h2>{allDetail[0].name}</h2>
     </div>
     <div>
         <h1>height:</h1>
-        <p><br/>{allDetail.height}<br/></p>
+        <p><br/>{allDetail[0].height}<br/></p>
     </div>
     <div>
       <h1>weight:</h1>
-      <p><br/>{allDetail.weight}<br/></p>
+      <p><br/>{allDetail[0].weight}<br/></p>
     </div>
     <div>
-      <h1>life_span:</h1>
-      <p><br/>{allDetail.life_span}<br/></p>
+      <h1>life span:</h1>
+      <p><br/>{allDetail[0].life_span}<br/></p>
     </div>
     <div>
-      <br/>{allDetail.temperaments}<br/>
+      <h1>Temperament:</h1>
+      {
+         <p>
+            {allDetail[0].createdInDB
+            ? allDetail[0]?.temperaments?.map((el) => el.name).join(", ")
+            : allDetail[0].temperament}
+         </p>
+      }
     </div>
     </div>
-    :
+
+    )
+    :(
     <div>
         <h1>CARGANDO...</h1>                  
     </div>
+    )
   }
     </>
   )

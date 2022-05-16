@@ -29,7 +29,7 @@ const getTemperament = async (req, res, next)=>{
     res.send(resultado2); 
     }
     catch(e){
-        res.status(404).send("Algo salio mal al guardar perros")
+        res.status(404).send("Algo salio mal al guardar temperamentos")
         next(e)
         console.log("error al guradar temperamentos")
     }
