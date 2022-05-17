@@ -1,0 +1,36 @@
+.landing{
+    
+    /* background:url("C:\Users\Maxi\Desktop\Developer\Codigo-Henry\P.I´S\p.i_dogs\PI-Dogs-main\client\src\img\landing.jpg"); */
+    /* background-image: url("https://www.pexels.com/es-es/foto/foto-en-primer-plano-de-cara-de-perro-marron-y-negro-406014/"); */
+}
+h1{
+    margin-top:250px;
+    font-family: 'Dancing Script', cursive;
+    font-size:80px;
+}
+
+.button{
+    font-size:18px;
+    padding: 1em 2.4em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: transparent;
+    transition: 250ms ease-in-out;
+    cursor:pointer;
+    cursor:hand;
+    text-decoration: none;
+}
+
+.but{
+    text-decoration: none;
+    color: black;
+    font-family: 'Koulen', cursive;
+
+}
+
+.button:hover{
+    color: white;
+    box-shadow: 
+    0 0 50px 50px #717a80 inset,
+    0 0 10px #fff4f4;
+}

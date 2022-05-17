@@ -10,7 +10,8 @@ import FilterByTemperament from '../Filter/FilterByTemperament';
 import FilterByRaza from '../Filter/FilterByRaza';
 import OrderAlfabetico from '../Order/OrderAlfabetico.jsx';
 import OrderByPeso from '../Order/OrderByPeso.jsx';
-import SearchName from '../SearchName/SearchName'
+import SearchName from '../SearchName/SearchName';
+import style from './Home.module.css';
 
 import {getAll} from '../../Redux/Action/Action'
 
@@ -34,6 +35,7 @@ export const Home = () => {
 
   return (
       <>
+      <header>
         <div>Fan page DOGS</div>
         <div>
             <button onClick={e=>handleRefresh(e)}>
@@ -60,6 +62,8 @@ export const Home = () => {
         <div>
             <OrderByPeso/>
         </div>
+      </header>
+      <section>
         <div>
             {
                 currentDogs?.length > 0 ? 
@@ -76,6 +80,10 @@ export const Home = () => {
             pagination={pagination}
             />
         </div>
+      </section>
+      <footer>
+          Maxi cacciamano 2022
+      </footer>
       </>
   )
 }
