@@ -18,7 +18,7 @@ export const Form = () => {
   );
   const [errors, setErrors] = useState(true);
   const [input, setInput] = useState({
-    name:"",
+    name:"", 
     img:"",
     height:"",
     weight:"",
@@ -28,38 +28,98 @@ export const Form = () => {
 
   useEffect(()=>{
     dispatch(getTemperaments())
-  },[])
+  },[dispatch])
   
-  // function validate(input){
+  function validate(input){
+    let regexheightWeight = /\d{1,2}/gi;
+    let regexName = /[a-zA-Z0-9:-\s’']/;
+    let regexDescription = /^.{1,300}$/;
 
-  // }
-
-  // function handleChange(e){
-  //   setInput({
-  //     ...input,
-  //     [e.target.value]:e.target.value
-  //   })
-  //   setErrors(validate({
-  //     ...input,
-  //     [e.target.name]: e.target.value
-  //   }))
-  // }
-
-  function handleSelect (e){
-    e.preventDefault()
-    if(!input.temperaments.includes(e.target.value)){
-      return setInput({
-        ...input,
-        temperaments:[...input.temperaments, e.target.value]
-      })
+    let errors = {};
+    if(input.name.trim()){
+      errors.name = "A names is required"
+    }else if(!regexName.test(input.name.trim())){
+      errors.name = "The name field only accepts letters, numbers and characters"
     }
+
+    if(input.height.trim()){
+      errors.height = "A heigth is required"
+    }else if(!regexheightWeight.test(input.height)){
+      errors.height = "Height must have min values. Example: '25'"
+    }
+
+    if(input.weight.trim()){
+      errors.weight = "A weight is required"
+    }else if(!regexheightWeight.test(input.weight)){
+      errors.weight = "Weight must have min values. Example: '25'"
+    }
+
+    // if(input.description.trim()){
+    //   errors.description = "A description is required"
+    // }else if(!regexDescription.test(input.description.trim())){
+    //   errors.description = "It must not exceed 300 characters"
+    // }
+    return errors;
+
   }
+
+  function handleChange(e){
+    setInput({
+      ...input,
+      [e.target.name]:e.target.value
+    })
+    setErrors(validate({
+      ...input,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+  // function handleSelect (e){
+  //   e.preventDefault()
+  //   if(!input.temperaments.includes(e.target.value)){
+  //     return setInput({
+  //       ...input,
+  //       temperaments:[...input.temperaments, e.target.value]
+  //     })
+  //   }
+  // }
 
   function handleDelete(e){
     setInput({
       ...input,
       temperaments: input.temperaments.filter((temper)=> temper !== e)
     })
+  }
+
+  function handleTemperaments(t){
+    !input.temperaments.includes(t.target.value)?
+   setInput({
+      ...input,
+      temperaments:[...input.temperaments, t.target.value]
+    }): alert("no se permites temperamentos repetidos");
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    if(
+      input.name.length>0&&
+      input.height.length>0&&
+      input.weight.length>0&&
+      input.description.length>0
+      ){
+        alert("Dog created successfully")
+       dispatch(postDogs(input))
+        setInput({
+          name:"",
+          img:"",
+          height:"",
+          weight:"",
+          life_span:"",
+          temperaments:[]
+        });
+      }else{
+       return alert("You must complete some fields before submitting the information")
+      }
   }
 
   return (
@@ -69,23 +129,25 @@ export const Form = () => {
     </div>
     <div>
     <h1>Create Dogs</h1>
-    <form>
+    <form onSubmit={(e)=>handleSubmit(e)}>
       <div>
         <p>Name</p>
         <input
         type="text"
         value={input.name}
         name="name" 
+        placeholder={errors.name}
+        onChange={e=>handleChange(e)}
 
         />
       </div>
       <div>
-        <p>Image</p>
+        <p>Image url:</p>
         <input
-        type="text"
+        type="url"
         value={input.image}
         name="image"
-        placeholder="Image"
+        placeholder="http://myimageontheweb.com"
         />
       </div>
       <div>
@@ -93,6 +155,9 @@ export const Form = () => {
         <input
         type="text"
         value={input.height}
+        placeholder={errors.height}
+        onChange={e=>handleChange(e)}
+        name="height"
         />
       </div>
       <div>
@@ -100,6 +165,9 @@ export const Form = () => {
         <input
         type="text"
         value={input.weight}
+        placeholder={errors.weight}
+        onChange={e=>handleChange(e)}
+        name="weight"
         />
       </div>
       <div>
@@ -107,11 +175,25 @@ export const Form = () => {
         <input
         type="text"
         value={input.life_span}
+        onChange={e=>handleChange(e)}
+        name="life_span"
+        />
+      </div>
+      <div>
+        <p>description</p>
+        <textarea
+         cols = "50"
+         rows = "5"
+         type="text"
+         value={input.description}
+         name="description"
+         placeholder={errors.description}
+         onChange={e=>handleChange(e)}
         />
       </div>
       <div>
         <p>temperament</p>
-        <select onChange={handleSelect}>
+        <select onChange={e=>handleTemperaments(e)}>
         {temperaments.map((temp)=>(
             <option key={temp.name} value={temp.name}>
               {temp.name}
@@ -127,10 +209,11 @@ export const Form = () => {
         {input.temperaments.map((e)=>(
           <ul key={e}>
             <li>{e}</li  >
-            <button onClick={()=>handleDelete(e)}></button>
+            <button onClick={()=>handleDelete(e)}>x</button>
           </ul>
         ))}
       </div>
+    <button type="submit" >Create Dogs</button>
     </form>
     </div>
     </>

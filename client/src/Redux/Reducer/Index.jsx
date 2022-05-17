@@ -38,10 +38,11 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 detail: action.payload
             }
-            case "POST_DOGS":
+            case "POST_DOGS":{
                 return{
                     ...state
                 }
+            }
         case "FILTER_BY_TEMPERAMENT":
             const allStateDogs = state.allDogs
             const temperdog = allStateDogs.filter(t => {

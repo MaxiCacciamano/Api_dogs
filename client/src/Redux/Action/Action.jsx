@@ -46,6 +46,19 @@ export function getTemperaments(){
     }
 }
 
+export function postDogs(payload){
+    try{
+        return async function (){
+            const response = await axios.post('http://localhost:3001/dogs/', payload);
+            console.log(response);
+            return response;
+        }
+    }
+    catch(err){
+        console.log("el error esta en postDogs de actions")
+    }
+}
+
 export function getDogsById(id){
     return async function(dispatch){
         try{

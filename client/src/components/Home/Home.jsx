@@ -66,7 +66,7 @@ export const Home = () => {
                 currentDogs?.map(e=>{
                     return  <Card img={e.image} name={e.name} temperaments={e.temperament} weight={e.weight} id={e.id} key={e.id}/>
                 }):
-                <h1>Cargando...</h1>
+                <h1>Not found</h1>
             }
         </div>
         <div>
