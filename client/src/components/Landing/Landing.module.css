@@ -3,7 +3,7 @@
     /* background:url("C:\Users\Maxi\Desktop\Developer\Codigo-Henry\P.I´S\p.i_dogs\PI-Dogs-main\client\src\img\landing.jpg"); */
     /* background-image: url("https://www.pexels.com/es-es/foto/foto-en-primer-plano-de-cara-de-perro-marron-y-negro-406014/"); */
 }
-h1{
+.landing h1{
     margin-top:250px;
     font-family: 'Dancing Script', cursive;
     font-size:80px;

@@ -17,7 +17,8 @@ export const OrderByPeso = () => {
   return (
     <>
         <div >
-          <h5 >Order by weight</h5>
+          {/* <h5 >Order by weight</h5> */}
+          
           <select
             onChange={(e) => {
               handlewidth(e);

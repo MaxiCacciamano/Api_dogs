@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
 import {getDogsById, removeDetail} from '../../Redux/Action/Action';
-
+import style from './SearchByid.module.css'
 
 export const SearchByid = (props) => {
 
@@ -21,32 +21,28 @@ export const SearchByid = (props) => {
   const allDetail = useSelector((state)=>state.detail)
   
   return (
-    <>
-     <div>
-      <Link to="/home"><button>Back</button></Link>
-      <br/><br/>
-    </div> 
+    <div >
     {
     allDetail.length > 0?(
-    <div>
-    <div>
+    <div className={style.cargando}>
+    <div className={style.i}>
       <img src={allDetail[0].image}/>
     </div>
-    <div>
+    <div className={style.tarje}>
         <h1>Name:</h1>
         <h2>{allDetail[0].name}</h2>
     </div>
     <div>
         <h1>height:</h1>
-        <p><br/>{allDetail[0].height}<br/></p>
+        <p>{allDetail[0].height}</p>
     </div>
     <div>
       <h1>weight:</h1>
-      <p><br/>{allDetail[0].weight}<br/></p>
+      <p>{allDetail[0].weight}</p>
     </div>
     <div>
       <h1>life span:</h1>
-      <p><br/>{allDetail[0].life_span}<br/></p>
+      <p>{allDetail[0].life_span}</p>
     </div>
     <div>
       <h1>Temperament:</h1>
@@ -67,7 +63,10 @@ export const SearchByid = (props) => {
     </div>
     )
   }
-    </>
+    <div className={style.but}>
+      <Link to="/home"><button>Back</button></Link>
+    </div> 
+    </div>
   )
 }
 export default SearchByid

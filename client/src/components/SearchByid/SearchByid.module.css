@@ -1,0 +1,24 @@
+.but button{
+    border-radius:7px;
+    /* max-width:200px; */
+    height:40px;
+    background-color:rgb(160, 202, 216);
+    cursor: pointer;
+    padding:10px;
+    margin-bottom:10px;
+}
+
+.i img {
+    width:500px;
+    height:400px;
+    padding:10px;
+    border-radius: 30px;
+}
+
+.i {
+    border-radius:50px;
+}
+.cargando p{
+    color: white;
+    font-size:20px;
+}

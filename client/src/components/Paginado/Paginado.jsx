@@ -1,4 +1,5 @@
 import React from 'react'
+import style from './Paginado.module.css'
 
 export const Paginado = ({dogsPerPage, dogs, pagination}) => {
     const pageNumbres = [];
@@ -8,10 +9,10 @@ export const Paginado = ({dogsPerPage, dogs, pagination}) => {
     }
   return (
     <>
-    <div>
+    <div className={style.contain}>
         <ul>
                 {pageNumbres?.map(e=>(
-                    <li key={e}>
+                    <li key={e} >
                         <p onClick={()=> pagination(e)}>{e}</p>
                     </li>
                 ))}

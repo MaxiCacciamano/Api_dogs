@@ -41,36 +41,52 @@ export const Home = () => {
             <button onClick={e=>handleRefresh(e)}>
               Refresh
             </button>
-        </div>
-        <div>
-            <Link to='/Create_Dogs'>
-                Create Dogs
-            </Link>
-        </div>
-        <div>
-            <SearchName/>
-        </div>
-        <div>
-            <FilterByTemperament/>
-        </div>
-        <div>
-            <FilterByRaza/>
-        </div>
-        <div>
-            <OrderAlfabetico/>
-        </div>
-        <div>
-            <OrderByPeso/>
+        </div >
+        <div className={style.filtros}>
+        <ul>
+            <li>
+               <div className={style.create}>
+                 <Link to='/Create_Dogs'>
+                   Create Dogs
+                 </Link>
+                 </div>
+            </li>
+            <li>
+               <div>
+                <SearchName/>
+               </div>
+            </li>
+            <li>
+             <div>
+               <FilterByTemperament/>
+             </div>
+            </li>
+            <li>
+             <div>
+              <FilterByRaza/>
+             </div>
+            </li>
+            <li>
+            <div>
+               <OrderAlfabetico/>
+            </div>
+            </li>
+            <li>
+             <div>
+              <OrderByPeso/>
+             </div>
+            </li>
+        </ul>
         </div>
       </header>
       <section>
-        <div>
+        <div className={style.cardscontainer}>
             {
                 currentDogs?.length > 0 ? 
                 currentDogs?.map(e=>{
-                    return  <Card img={e.image} name={e.name} temperaments={e.temperament} weight={e.weight} id={e.id} key={e.id}/>
+                    return  <Card className={style.grid} img={e.image} name={e.name} temperaments={e.temperament} weight={e.weight} id={e.id} key={e.id}/>
                 }):
-                <h1>Not found</h1>
+                <h1 className={style.cargando}>Cargando..</h1>
             }
         </div>
         <div>
