@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {postDogs, getTemperaments } from '../../Redux/Action/Action';
-
+import style from './Form.module.css';
 
 
 
@@ -115,6 +115,7 @@ export const Form = () => {
           height:"",
           weight:"",
           life_span:"",
+          description:"",
           temperaments:[]
         });
       }else{
@@ -124,15 +125,16 @@ export const Form = () => {
 
   return (
     <>
-    <div>
-      <Link to="/home"><button>Back</button></Link>
+    <div >
+      <Link to="/home"><button className={style.button}>Back</button></Link>
     </div>
     <div>
     <h1>Create Dogs</h1>
     <form onSubmit={(e)=>handleSubmit(e)}>
       <div>
-        <p>Name</p>
+        <p className={style.input}>Name</p>
         <input
+        className={style.texto}
         type="text"
         value={input.name}
         name="name" 
@@ -142,8 +144,9 @@ export const Form = () => {
         />
       </div>
       <div>
-        <p>Image url:</p>
+        <p className={style.input}>Image url:</p>
         <input
+        className={style.texto}
         type="url"
         value={input.image}
         name="image"
@@ -151,8 +154,9 @@ export const Form = () => {
         />
       </div>
       <div>
-        <p>height</p>
+        <p className={style.input}>height</p>
         <input
+        className={style.texto}
         type="text"
         value={input.height}
         placeholder={errors.height}
@@ -161,8 +165,9 @@ export const Form = () => {
         />
       </div>
       <div>
-        <p>weight</p>
+        <p className={style.input}>weight</p>
         <input
+        className={style.texto}
         type="text"
         value={input.weight}
         placeholder={errors.weight}
@@ -171,8 +176,9 @@ export const Form = () => {
         />
       </div>
       <div>
-        <p>life_span</p>
+        <p className={style.input}>life_span</p>
         <input
+        className={style.texto}
         type="text"
         value={input.life_span}
         onChange={e=>handleChange(e)}
@@ -180,8 +186,9 @@ export const Form = () => {
         />
       </div>
       <div>
-        <p>description</p>
+        <p className={style.input}>description</p>
         <textarea
+        className={style.texto}
          cols = "50"
          rows = "5"
          type="text"
@@ -192,11 +199,11 @@ export const Form = () => {
         />
       </div>
       <div>
-        <p>temperament</p>
-        <select onChange={e=>handleTemperaments(e)}>
+        <p className={style.caja1}>temperament</p>
+        <select onChange={e=>handleTemperaments(e)} className={style.caja1}>
         {temperaments.map((temp)=>(
             <option key={temp.name} value={temp.name}>
-              {temp.name}
+              {temp.name} 
             </option>
         ))}
         </select>
@@ -204,16 +211,16 @@ export const Form = () => {
           <li>{input.temperaments.map(t=>t+",")}</li>
         </ul> */}
       </div>
-      <div>
+      <div >
         <h3>You have selected that:</h3>
         {input.temperaments.map((e)=>(
-          <ul key={e}>
+          <ul key={e} className={style.in}>
             <li>{e}</li  >
-            <button onClick={()=>handleDelete(e)}>x</button>
+            <button className={style.but} onClick={()=>handleDelete(e)} >x</button>
           </ul>
         ))}
       </div>
-    <button type="submit" >Create Dogs</button>
+    <button type="submit" className={style.buton} >Create Dogs</button>
     </form>
     </div>
     </>

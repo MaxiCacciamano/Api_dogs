@@ -82,12 +82,20 @@ export const Home = () => {
       <section>
         <div className={style.cardscontainer}>
             {
-                currentDogs?.length > 0 ? 
-                currentDogs?.map(e=>{
-                    return  <Card className={style.grid} img={e.image} name={e.name} temperaments={e.temperament} weight={e.weight} id={e.id} key={e.id}/>
-                }):
-                <h1 className={style.cargando}>Cargando..</h1>
-            }
+                currentDogs.length > 0 ? (
+                  currentDogs.map(e=>(
+                        <Card img={e.image} name={e.name} temperaments={e.temperament} weight={e.weight} id={e.id} key={e.id}/>
+                  ))): currentDogs === false?(
+                      <div>
+                          {/* <img src={Notfound} añt="img not found"/> */}
+                          <h1>no anda</h1>
+                      </div>
+                  ):(
+                      <div>
+                          <h1 className={style.cargando}>Cargando...</h1>
+                      </div>
+                  )
+              }
         </div>
         <div>
             <Paginado

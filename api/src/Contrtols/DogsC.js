@@ -65,11 +65,11 @@ catch(e){
 
 const GetDogs = async (req, res, next) =>{
     try{
-        const {name} = req.query;
+        const {name} = req.query; 
         let dogs = await GetAll();
         if(name){
             let dogsName = dogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()));
-            if(dogsName.length)res.status(200).send(dogsName)
+            if(dogsName.length)res.status(200).json(dogsName)
             res.status(404).send("algo salio mal en en la busqueda de nombres")
         }res.status(200).json(dogs)
 
@@ -194,10 +194,36 @@ const postDogs= async(req,res,next)=>{
     }
 }
 
+const deleteDogs = async function (req,res,next) {
+    const {id} = req.params;
+    try{
+        const dbDog = await Dog.findAll({
+            where:{
+                id:id
+            }
+        })
+        if(dbDog){
+            Dog.destroy({
+                where:{
+                    id:id
+                }
+            })
+            return res.status(200).send("Dog eliminado con exito");
+        }else{
+            return res.status(404).send("error al eliminar Dog");
+        }
+    }
+    catch(err){
+        next(err);
+        console.log(err);
+    }
+}
+
 
 module.exports = {
     GetDogs,
     GetDogsId,
-    postDogs
+    postDogs,
+    deleteDogs
 
 };

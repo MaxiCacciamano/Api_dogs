@@ -3,7 +3,8 @@ const initialState ={
     dog:[],
     temperaments:[],
     allDogs:[],
-    detail:[]
+    detail:[],
+    delete:[]
 }
 
 export default function rootReducer(state = initialState, action){
@@ -38,23 +39,27 @@ export default function rootReducer(state = initialState, action){
                 ...state,
                 detail: action.payload
             }
-            case "POST_DOGS":{
+        case "POST_DOGS":{
                 return{
                     ...state
                 }
             }
-        case "FILTER_BY_TEMPERAMENT":
-            const allStateDogs = state.allDogs
-            const temperdog = allStateDogs.filter(t => {
-                if(t.temperaments){
-                    const temper = t.temperaments.map(p=>p.name)
-                    return temper.includes(action.payload)
-                }
-            })
+
+        case "DELTE_DOGS":{
             return{
                 ...state,
-                dogs: action.payload === "Sin_filtro" ? allStateDogs : temperdog,
+                delete: action.payload
             }
+        }
+        case "FILTER_BY_TEMPERAMENT":
+                const allStateDogs = state.allDogs.filter(dog=>{
+                    if(!dog.temperament) return undefined
+                    return dog.temperament.includes(action.payload)
+                })
+                return{
+                    ...state,
+                    dogs: allStateDogs
+                }
         case "FILTER_BY_RAZA":
                 const origen = action.payload === "Created" ? state.dog.filter(e=>e.createdInDatabase) : state.dog.filter(e=> !e.createdInDatabase)
                 return{
