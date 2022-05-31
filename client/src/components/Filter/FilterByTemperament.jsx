@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {filterByTemperament} from '../../Redux/Action/Action'
+import  './Filter.module.css';
 
 
  const FilterByTemperament = () => {
@@ -14,8 +15,10 @@ import {filterByTemperament} from '../../Redux/Action/Action'
     }
   return (
     <>
+        <h4>Temperaments</h4>
        <select onChange={handleselectTemperament}>
            <option value="Sin_filtro">Temperaments</option>
+           <p>Temperament</p>
            {
                temperamentss.map((e)=>{
                    return(

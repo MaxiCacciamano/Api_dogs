@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
 import {searchByName} from '../../Redux/Action/Action'
+import style from '../Filter/Filter.module.css';
 
 export const SearchName = () => {
     const dispatch = useDispatch()
@@ -20,6 +21,8 @@ export const SearchName = () => {
 
   return (
     <>
+    <div className={style.raza}>
+       <h4>Search by name</h4>
      <form onSubmit={(e)=>handleSubmit(e)}>
          <input
          placeholder="Search Dog"
@@ -30,6 +33,8 @@ export const SearchName = () => {
          🔍
          </button>
      </form>
+
+    </div>
     </>
   )
 }

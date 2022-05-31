@@ -11,6 +11,7 @@ import FilterByRaza from '../Filter/FilterByRaza';
 import OrderAlfabetico from '../Order/OrderAlfabetico.jsx';
 import OrderByPeso from '../Order/OrderByPeso.jsx';
 import SearchName from '../SearchName/SearchName';
+import NavBar from '../NavBar/NavBar.jsx';
 import style from './Home.module.css';
 
 import {getAll} from '../../Redux/Action/Action'
@@ -33,58 +34,61 @@ export const Home = () => {
         dispatch(getAll())
     }
 
+        // <div>
+            {/* <button onClick={e=>handleRefresh(e)}> */}
+              {/* Refresh */}
+            {/* </button> */}
+        {/* </div > */}
   return (
       <>
       <header>
-        <div>Fan page DOGS</div>
-        <div>
-            <button onClick={e=>handleRefresh(e)}>
-              Refresh
-            </button>
-        </div >
+        <NavBar/>
+        {/* <div className={style.title}>
+          <Link to={`/home`}>
+          <a>Fan page DOGS</a>
+          </Link>
+        </div>
+        <div className={style.create}>
+           <Link to='/Create_Dogs'>
+                 Create Dogs
+            </Link>
+        </div> */}
+      </header>
         <div className={style.filtros}>
-        <ul>
-            <li>
-               <div className={style.create}>
-                 <Link to='/Create_Dogs'>
-                   Create Dogs
-                 </Link>
-                 </div>
-            </li>
-            <li>
-               <div>
-                <SearchName/>
-               </div>
-            </li>
-            <li>
+
+
              <div>
                <FilterByTemperament/>
              </div>
-            </li>
-            <li>
+
              <div>
               <FilterByRaza/>
              </div>
-            </li>
-            <li>
+
             <div>
                <OrderAlfabetico/>
             </div>
-            </li>
-            <li>
              <div>
-              <OrderByPeso/>
+               <OrderByPeso/>
              </div>
-            </li>
-        </ul>
+             <div className={style.Search}>
+              <SearchName/>
+              {/* {
+                currentDogs.name?(e=>(
+
+                  <Card img={e.image} name={e.name}/>
+                )
+                ):
+                <p>esperando perro</p>
+              } */}
+             </div>
         </div>
-      </header>
       <section>
         <div className={style.cardscontainer}>
             {
                 currentDogs.length > 0 ? (
                   currentDogs.map(e=>(
-                        <Card img={e.image} name={e.name} temperaments={e.temperament} weight={e.weight} id={e.id} key={e.id}/>
+                        <Card name={e.name} img={e.image}  temperaments={e.temperament} weight={e.weight} id={e.id} key={e.id}/>
                   ))): currentDogs === false?(
                       <div>
                           {/* <img src={Notfound} añt="img not found"/> */}

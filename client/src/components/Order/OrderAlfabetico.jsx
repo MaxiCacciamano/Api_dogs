@@ -2,7 +2,7 @@ import React from 'react'
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 import {orderByName} from '../../Redux/Action/Action'
-
+import style from '../Filter/Filter.module.css';
 export const OrderAlfabetico = () => {
     const dispatch = useDispatch();
 
@@ -17,10 +17,13 @@ export const OrderAlfabetico = () => {
     }
   return (
     <>
+    <div className={style.raza}>
+    <h4>Order by name</h4>
       <select onChange={e=>handleName(e)}>
           <option value="asc">Ascendente</option>
           <option value="desc">Descendente</option>
       </select>
+    </div>
     </>
   )
 }

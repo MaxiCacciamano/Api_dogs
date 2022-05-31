@@ -14,30 +14,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    img:{
+    image:{
       type: DataTypes.STRING,
     },
-    // temperaments:{
-    //   type: DataTypes.STRING,
-    // },
-    // height_min:{
-
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // height_max:{
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    
-    // weight_min:{
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // weight_max:{
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
     height:{
       type: DataTypes.STRING,
       allowNull: false,

@@ -74,15 +74,7 @@ export const Form = () => {
     }))
   }
 
-  // function handleSelect (e){
-  //   e.preventDefault()
-  //   if(!input.temperaments.includes(e.target.value)){
-  //     return setInput({
-  //       ...input,
-  //       temperaments:[...input.temperaments, e.target.value]
-  //     })
-  //   }
-  // }
+
 
   function handleDelete(e){
     setInput({
@@ -207,12 +199,9 @@ export const Form = () => {
             </option>
         ))}
         </select>
-        {/* <ul>
-          <li>{input.temperaments.map(t=>t+",")}</li>
-        </ul> */}
       </div>
       <div >
-        <h3>You have selected that:</h3>
+        <h3>You have selected:</h3>
         {input.temperaments.map((e)=>(
           <ul key={e} className={style.in}>
             <li>{e}</li  >

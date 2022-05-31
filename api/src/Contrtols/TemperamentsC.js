@@ -10,22 +10,24 @@ const getTemperament = async (req, res, next)=>{
         const listaTemperamentos = resultado.data.map(dog => {
             // Si no viene un temperamento agrego undefined
             if(!dog.temperament) return dog.temperament = undefined;
-            // A todos los demas los spliteo por ", " para añadirlos a un array en la constante aux
             const aux = dog.temperament.split(", "); 
             return aux;
         });
-            const limparValoresUndefined = listaTemperamentos.flat().filter(Boolean); // limpio todo lo que sea null, undefine sin importar el nivel en el que este en el array
-            const valoresUnicos = new Set(limparValoresUndefined); // Quito todas las repeticiones y solo dejo un valor unico
-            const resultadoFinal = [...valoresUnicos]; // hago destructurin del array valores unicos y los guardo en resultadoFinal
+            const limparValoresUndefined = listaTemperamentos.flat().filter(Boolean); 
+            // limpio  lo que sea null, undefine sin importar el nivel en el que este en el array
+            const valoresUnicos = new Set(limparValoresUndefined);
+             // Quito  las repeticiones y solo dejo un valor unico
+            const resultadoFinal = [...valoresUnicos]; 
+            // hago destructurin del array valores unicos y los guardo en resultadoFinal
 
-                // Encuentro o creo en el modelo de Temperamento, cada temperamento donde el nombre sea igual al dog en el que estoy en ese momento
+
      resultadoFinal.forEach(dog => Temperament.findOrCreate({
         where: {
             name: dog
         }
     }))
 
-    const resultado2 = await Temperament.findAll(); // Me traigo todos los temperamentos de la base de datos
+    const resultado2 = await Temperament.findAll(); //
     res.send(resultado2); 
     }
     catch(e){

@@ -22,3 +22,9 @@
     color: white;
     font-size:20px;
 }
+.cc h1{
+    margin-bottom:300px;
+}
+footer{
+    display: grid;
+}

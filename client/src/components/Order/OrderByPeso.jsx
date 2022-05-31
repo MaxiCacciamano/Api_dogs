@@ -2,6 +2,7 @@ import React from 'react'
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 import {orderWeigthmin} from '../../Redux/Action/Action'
+import style from '../Filter/Filter.module.css';
 
 export const OrderByPeso = () => {
 
@@ -16,9 +17,9 @@ export const OrderByPeso = () => {
     }
   return (
     <>
-        <div >
+        <div className={style.raza}>
           {/* <h5 >Order by weight</h5> */}
-          
+          <h4>Order by weigth</h4>
           <select
             onChange={(e) => {
               handlewidth(e);

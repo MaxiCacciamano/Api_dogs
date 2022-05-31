@@ -1,13 +1,14 @@
 .cardscontainer {
-    display: grid;
-    padding: 5px;
-    align-content: space-around;
-    -ms-grid-column-align: center;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    justify-content: start;
-    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    /* margin-left: 20%; */
+    /* padding: 15px; */
+    margin-top: -10px;
+    margin-left: 190px;
+    margin-right:200px;
 }
 
 .cargando  {
@@ -19,17 +20,9 @@ section{
 }
 
 header{
-    /* background-color:black; */
-    /* font-size: 20px; */
-    margin-top:-25px;
-    height:50px;	
-	width: auto;
-	margin-right: auto;
-	margin-left: auto;
-    position: initial;
-    width: 100%;
-    top: 0;
-    height: 150px;
+    background-color:wheat;
+    height:100px;
+    
 }
 
 body{
@@ -37,14 +30,20 @@ body{
 }
 .filtros{
 
-    /* background: #333; */
-	color: white;
-	height: 80px;
-
-    width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
-	left: 0; /* Posicionamos la cabecera al lado izquierdo */
-	/* top: 0; Posicionamos la cabecera pegada arriba */
-	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+    display: flex;
+    flex-direction: column;
+    background-color: wheat;
+    color: #1a3813c5;
+    top: 15%;
+    left: 2%;
+    margin: 100px 5px;
+    margin-left: 1%;
+    padding: 10px;
+    border-radius: 12px;
+    min-width: 200px;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: fixed;
 
 }
  .filtros ul{
@@ -68,9 +67,38 @@ body{
     height:40px;
     margin-top:-5px;
 }
-
+/* .create{
+    margin-top:30px;
+    margin-left:1100px;
+    position:absolute;
+    border: 2px solid #1a1919;
+    padding:10px;
+    cursor: pointer;
+    border-radius:10px;
+}
 .create a{
     text-decoration: none;
-    color:white;
+    color:black;
+}
+.create:hover{
+    background-color:rgb(144, 144, 149);
+    /* margin-left:530px; */
+    /* padding:11px; */
+/* } */
+/* .title{
+    margin-right: -1300px;
+    margin-top:30px;
+    position: absolute;
+    width:200px;
 }
 
+.title a{
+    position:absolute;
+}  */
+
+footer{
+    background-color:wheat;
+    height:50px;
+    border-radius:10px;
+    margin-top:10px;
+}

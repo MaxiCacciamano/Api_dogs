@@ -44,6 +44,11 @@ export default function rootReducer(state = initialState, action){
                     ...state
                 }
             }
+        case "DELET_DOGS":{
+            return{
+                ...state
+            }
+        }
 
         case "DELTE_DOGS":{
             return{

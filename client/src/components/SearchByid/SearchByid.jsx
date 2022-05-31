@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
 import {getDogsById, removeDetail} from '../../Redux/Action/Action';
+import NavBar from '../NavBar/NavBar';
 import style from './SearchByid.module.css'
 
 export const SearchByid = (props) => {
@@ -22,6 +23,9 @@ export const SearchByid = (props) => {
   
   return (
     <div >
+    <header>
+      <NavBar/>
+    </header>
     {
     allDetail.length > 0?(
     <div className={style.cargando}>
@@ -58,7 +62,7 @@ export const SearchByid = (props) => {
 
     )
     :(
-    <div>
+    <div className={style.cc}>
         <h1>CARGANDO...</h1>                  
     </div>
     )
@@ -66,6 +70,9 @@ export const SearchByid = (props) => {
     <div className={style.but}>
       <Link to="/home"><button>Back</button></Link>
     </div> 
+    <footer>
+     <p>Maximiliano cacciamano 2022 </p> 
+    </footer>
     </div>
   )
 }

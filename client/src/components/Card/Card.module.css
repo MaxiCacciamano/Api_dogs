@@ -2,31 +2,28 @@
     background: linear-gradient(to right, #a5fecb, #20bdff,#5433ff);
 } */
 .main{
-    width:1100;
+     width:1100;
     display: flex;
     justify-content:center;
     align-items:center;
-    /* flex-wrap: wrap; */
-    padding:100px 20px 10px;
+     flex-wrap: wrap; 
+     padding:100px 20px 10px; 
 }
 
 .box{
-    max-width: 310px;
-    /* height:420px; */
-    /* height:215; */
-    /* background:#fff; */
-    /* margin:30px 10px; */
-    /* padding: 90px 20px; */
-    display:flex;
-    border-radius:4px;
-    flex-direction: column;
-    box-shadow: 0 5px 5px
-    rgba(0, 0, 0.5);
-    transition: 0.3s ease-in-out;
+    margin: 10px 15px;
+    padding: 8px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 6px 7px 8px -6px rgba(69,69,69,0.7);
+    position: relative;
+    /* background-color:wheat;
+    background-size: cover; */
+    background-position: -20px -50%;
 }
 
  .box:hover{
-    height:600px;
+    /* height:600px; */
 }
 .imgBx{
     /* position:relative; */
@@ -40,22 +37,21 @@
     box-shadow: 0 5px 20px */
 
 }
-.imgBx img{
+.content img{
    width:290px;
    height:260px;
-   border-radius: 0px;
-   padding:8px;
+   padding:0px;
    /* margin-top: -90px; */
-   margin-bottom: -120px;
+   /* margin-bottom: -120px; */
+   border-radius:15px;
 }
 .main .box .content{
     position: relative;
-    margin-top: -140px;
-    /* padding:30px 45px; */
+    margin-top: 2px;
     text-align: center;
     color: #111;
-    visibility: hidden;
-    opacity: 0;
+    /* visibility: hidden; */
+    /* opacity: 0; */
     transition: 0.3s ease-in-out;
     transition-delay: 0s;
 }
@@ -63,13 +59,12 @@
     margin-bottom:-120px;
 } */
 .box:hover .content{
-    visibility: visible;
-    opacity: 1;
-    margin-top: 100px;
-    transition-delay: 0.3s;
-    /* height:500px; */
+    transform: scale(1.05,1.05);
+    box-shadow: 6px 7px 8px 3px rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    /* height: 30px; */
 }
-.card-footer button {
+/* .card-footer button {
     width: 150px;
     background: black;
     color: white;
@@ -82,4 +77,4 @@
     transition: 0.2s;
     cursor: pointer;
 
-}
+} */

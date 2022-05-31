@@ -30,7 +30,6 @@ export function searchByName(name){
 }
 
 export function getTemperaments(){
-    try{
         return function(dispatch){
             return axios.get(`http://localhost:3001/temperament/`)
             .then((data)=>{
@@ -39,10 +38,9 @@ export function getTemperaments(){
                     payload: data.data
                 })
             })
-        }
-    }
-    catch(e){
-        console.log(e, "error en el getTemperaments", e)
+            .catch((e)=>{
+                alert( "error en el getTemperaments", e)
+            })
     }
 }
 
@@ -71,6 +69,20 @@ export function getDogsById(id){
         catch(e){
             console.log("el error viene del getDogsById de actions", e)
         }
+    }
+}
+export function deleteDogs(id){
+    return function (dispatch){
+        return axios.get(`http://localhost:3001/dogs/delete/${id}`)
+        .then((res)=>{
+            dispatch({
+                type:"DELET_DOGS",
+                payload:res.data
+            })
+        })
+        .catch((e)=>{
+            console.log("error en el delete",e)
+        })
     }
 }
 

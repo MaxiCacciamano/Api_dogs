@@ -6,7 +6,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogers`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -32,8 +32,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Dog , Temperament } = sequelize.models;
 
-Dog.belongsToMany(Temperament,{ through: "Dogs_Temperament"})
-Temperament.belongsToMany(Dog,{ through:"Dogs_Temperament"})
+Dog.belongsToMany(Temperament,{ through: "temp_dog"})
+Temperament.belongsToMany(Dog,{ through:"temp_dog"})
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
